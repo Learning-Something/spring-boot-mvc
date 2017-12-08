@@ -2,12 +2,14 @@ package com.algaworks.vinho.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -22,15 +24,18 @@ public class Vinho {
 
     @Getter
     @Setter
+    @NotBlank
     private String nome;
 
     @Getter
     @Setter
+    @NotNull
     private TipoVinho tipo;
 
     @Getter
     @Setter
     @NumberFormat(pattern = "#,##0.00")
+    @NotNull
     private BigDecimal valor;
 
     @Override
